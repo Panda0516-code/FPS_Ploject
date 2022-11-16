@@ -16,14 +16,12 @@ public class FPScontoroller : MonoBehaviour
     //変数の宣言(角度の制限用)
     float minX = -90f, maxX = 90f;
 
-    // Start is called before the first frame update
     void Start()
     {
         cameraRot = cam.transform.localRotation;
         characterRot = transform.localRotation;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float xRot = Input.GetAxis("Mouse X") * Ysensityvity;
