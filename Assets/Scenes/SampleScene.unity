@@ -1064,9 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 963194225}
-  parent: {fileID: 0}
-  takeobj: 7
-  maxcount: 1
+  maxcount: 7
 --- !u!4 &1038457761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3533113581892783740, guid: cdd4351d2262fa343963659472a4a321, type: 3}
