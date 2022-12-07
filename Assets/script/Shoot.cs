@@ -42,7 +42,7 @@ public class Shoot : MonoBehaviour
     }
     private void Update()
     {
-        score_text.text = "スコア:" + player_score_cnt.ToString();
+        score_text.text = "SCORE:" + player_score_cnt.ToString();
         if (Input.GetMouseButtonDown(0))//マウスの左クリック
         {
             if (Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, 1000f))//画面の中心からrayを飛ばす
