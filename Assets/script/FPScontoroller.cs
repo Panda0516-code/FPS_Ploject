@@ -60,7 +60,7 @@ public class FPScontoroller : MonoBehaviour
         {
             cursorLock = false;
         }
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(1))
         {
             cursorLock = true;
         }

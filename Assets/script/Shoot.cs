@@ -19,12 +19,12 @@ public class Shoot : MonoBehaviour
     AudioSource audioSource;//オーディオソース
     [SerializeField]
     private Text score_text;//スコアのテキスト
-    private int player_score_cnt;//スコアをカウントする変数
+    public int player_score_cnt;//スコアをカウントする変数
     [SerializeField]
     private int scorepoint;//スコアに加算する数値
     private void Start()
     {
-        score_text.text = "スコア:" + player_score_cnt.ToString();
+        
 
         audioSource = GetComponent<AudioSource>();//オーディオソース格納
 
@@ -57,7 +57,7 @@ public class Shoot : MonoBehaviour
             }
         }
     }
-    private void RandomReEnemyAppear()//ランダムにtrueにするクラス
+    private void RandomReEnemyAppear()//ランダムにtrueにするメソッド
     {
         int[] ary = Enumerable.Range(0, hitobj.Length).OrderBy(n => Guid.NewGuid()).Take(hitobj.Length).ToArray();//hitobj内の順番をランダムにする
             while(hitobj[ary[active]].activeSelf == true)//ランダムに指定した箇所がアクティブだった時に
