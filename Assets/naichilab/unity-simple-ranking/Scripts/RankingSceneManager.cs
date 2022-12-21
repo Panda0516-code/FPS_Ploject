@@ -237,6 +237,11 @@ namespace naichilab
         public void OnCloseButtonClick()
         {
             closeButton.interactable = false;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();
+#endif 
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("Ranking");
         }
 

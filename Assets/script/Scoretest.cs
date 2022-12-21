@@ -14,6 +14,8 @@ public class Scoretest : MonoBehaviour
     [SerializeField]
     private Text Time_text;//スコアのテキスト
     private bool scoreflag = default;
+    [SerializeField]
+    FPScontoroller fpscontoroller;
     private void Start()
     {
         TimeChecker();
@@ -27,9 +29,11 @@ public class Scoretest : MonoBehaviour
         Time_text.text = seconds.ToString() + "秒";
         if (seconds <= 0 && !scoreflag) {
             Cursor.lockState = CursorLockMode.None;
+            fpscontoroller.enabled = false;
             Debug.Log("ああああああ");
             naichilab.RankingLoader.Instance.SendScoreAndShowRanking(shoot.player_score_cnt);
             Time.timeScale = 0;
+            shoot.enabled = false;
             scoreflag = true;
         }
 

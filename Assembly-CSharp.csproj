@@ -131,7 +131,7 @@
     <Compile Include="Assets\script\Scoretest.cs" />
     <Compile Include="Assets\NCMB\Script\NCMBConnection.cs" />
     <Compile Include="Assets\naichilab\unity-simple-ranking\Scripts\RankingLoader.cs" />
-    <Compile Include="Assets\script\testscore.cs" />
+    <Compile Include="Assets\script\EnemyOn.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\GUI\DualCorStudios\BasicUI Metal\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

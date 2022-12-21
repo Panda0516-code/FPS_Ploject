@@ -16,12 +16,18 @@ public class Shoot : MonoBehaviour
     RaycastHit hit;//当たった判定を格納する
     [SerializeField]
     private AudioClip sound1;//破壊サウンド
+    [SerializeField]
+    private AudioClip sound2;//銃声サウンド
+    [SerializeField]
+    private AudioClip sound3;//薬莢サウンド
     AudioSource audioSource;//オーディオソース
     [SerializeField]
     private Text score_text;//スコアのテキスト
     public int player_score_cnt;//スコアをカウントする変数
     [SerializeField]
-    private int scorepoint;//スコアに加算する数値
+    private int scorepoint = default;//スコアに加算する数値
+    [SerializeField]
+    Animator animator = default;//アニメーターのソース
     private void Start()
     {
         
@@ -45,6 +51,9 @@ public class Shoot : MonoBehaviour
         score_text.text = "SCORE:" + player_score_cnt.ToString();
         if (Input.GetMouseButtonDown(0))//マウスの左クリック
         {
+           animator.GetComponent<Animator>().SetTrigger("ShootTrigger");
+            audioSource.PlayOneShot(sound2);//音(sound1)を鳴らす
+            audioSource.PlayOneShot(sound3);//音(sound1)を鳴らす
             if (Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, 1000f))//画面の中心からrayを飛ばす
             {  
                 if (hit.collider.tag == "Enemy")//敵のタグがついたものに当たったら
