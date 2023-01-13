@@ -12,6 +12,7 @@ public class Shoot : MonoBehaviour
     private int maxcount = default;//敵の最大数
     private int hitcount =default;//for文で回すときに何回回したかカウントする変数
     private int active = default;//アクティブか判定したときに増減させる、判定用の変数
+    private GameObject nowhitobj;//撃ってヒットした敵を格納する変数
     private GameObject[] hitobj;//敵を格納する配列
     RaycastHit hit;//当たった判定を格納する
     [SerializeField]
@@ -28,6 +29,8 @@ public class Shoot : MonoBehaviour
     private int scorepoint = default;//スコアに加算する数値
     [SerializeField]
     Animator animator = default;//アニメーターのソース
+    [SerializeField]
+    ParticleSystem muzzleFlashParticle = null;//パーティクルのエフェクト
     private void Start()
     {
         
@@ -51,16 +54,18 @@ public class Shoot : MonoBehaviour
         score_text.text = "SCORE:" + player_score_cnt.ToString();
         if (Input.GetMouseButtonDown(0))//マウスの左クリック
         {
-           animator.GetComponent<Animator>().SetTrigger("ShootTrigger");
+            animator.GetComponent<Animator>().SetTrigger("ShootTrigger");
             audioSource.PlayOneShot(sound2);//音(sound1)を鳴らす
             audioSource.PlayOneShot(sound3);//音(sound1)を鳴らす
+            muzzleFlashParticle.Play();
             if (Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, 1000f))//画面の中心からrayを飛ばす
             {  
                 if (hit.collider.tag == "Enemy")//敵のタグがついたものに当たったら
                 {
                     player_score_cnt = player_score_cnt + scorepoint;
                     audioSource.PlayOneShot(sound1);//音(sound1)を鳴らす
-                    hit.collider.gameObject.SetActive(false);//当たったやつをfalseに
+                    nowhitobj = hit.collider.gameObject;//当たったオブジェクトを格納
+                    nowhitobj.SetActive(false);//当たったやつをfalseに
                     RandomReEnemyAppear();//ランダムなほかのやつをtrueにする
                 }
             }
@@ -69,7 +74,7 @@ public class Shoot : MonoBehaviour
     private void RandomReEnemyAppear()//ランダムにtrueにするメソッド
     {
         int[] ary = Enumerable.Range(0, hitobj.Length).OrderBy(n => Guid.NewGuid()).Take(hitobj.Length).ToArray();//hitobj内の順番をランダムにする
-            while(hitobj[ary[active]].activeSelf == true)//ランダムに指定した箇所がアクティブだった時に
+            while(hitobj[ary[active]].activeSelf == true || nowhitobj == hitobj[ary[active]])//ランダムに指定した箇所がアクティブだった時または、ヒットしたオブジェクトではなかった場合
         {
             active++;//判定箇所をずらしてもう一度判定する
         }

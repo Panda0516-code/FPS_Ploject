@@ -340,6 +340,10 @@ PrefabInstance:
       propertyPath: score_text
       value: 
       objectReference: {fileID: 430169795}
+    - target: {fileID: 7083873971502396838, guid: edb1efdb60d1534499db86c6eb8f21be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.967
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edb1efdb60d1534499db86c6eb8f21be, type: 3}
 --- !u!1 &1064000754

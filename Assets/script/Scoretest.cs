@@ -30,7 +30,6 @@ public class Scoretest : MonoBehaviour
         if (seconds <= 0 && !scoreflag) {
             Cursor.lockState = CursorLockMode.None;
             fpscontoroller.enabled = false;
-            Debug.Log("ああああああ");
             naichilab.RankingLoader.Instance.SendScoreAndShowRanking(shoot.player_score_cnt);
             Time.timeScale = 0;
             shoot.enabled = false;

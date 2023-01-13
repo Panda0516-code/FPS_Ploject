@@ -236,6 +236,7 @@ MonoBehaviour:
   player_score_cnt: 0
   scorepoint: 100
   animator: {fileID: 7364090820275788939}
+  muzzleFlashParticle: {fileID: 4747552209834703279}
 --- !u!82 &4014185067948525565
 AudioSource:
   m_ObjectHideFlags: 0
@@ -571,5 +572,10 @@ Transform:
 --- !u!95 &7364090820275788939 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7565120898378797397, guid: 726cd21416e138640a4f2575ffe04009, type: 3}
+  m_PrefabInstance: {fileID: 1066848390928682462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4747552209834703279 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5705081480725738609, guid: 726cd21416e138640a4f2575ffe04009, type: 3}
   m_PrefabInstance: {fileID: 1066848390928682462}
   m_PrefabAsset: {fileID: 0}
