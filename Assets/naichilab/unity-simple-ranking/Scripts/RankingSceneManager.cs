@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Linq;
 using NCMB;
 using NCMB.Extensions;
+using UnityEngine.SceneManagement;
 
 namespace naichilab
 {
@@ -20,6 +21,7 @@ namespace naichilab
         [SerializeField] InputField nameInputField;
         [SerializeField] Button sendScoreButton;
         [SerializeField] Button closeButton;
+        [SerializeField] Button ReplayButton;
         [SerializeField] RectTransform scrollViewContent;
         [SerializeField] GameObject rankingNodePrefab;
         [SerializeField] GameObject readingNodePrefab;
@@ -233,7 +235,12 @@ namespace naichilab
                 Instantiate(notFoundNodePrefab, scrollViewContent);
             }
         }
+        public void OnReplayButton()
+        {
+            ReplayButton.interactable = false;
 
+            SceneManager.LoadScene("Game");
+        }
         public void OnCloseButtonClick()
         {
             closeButton.interactable = false;

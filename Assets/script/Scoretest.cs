@@ -7,15 +7,15 @@ using UnityEngine.UI;
 public class Scoretest : MonoBehaviour
 {
     [SerializeField]
-    private float timeleft = default;
-    private int seconds;
+    private float timeleft = default;//制限時間
+    private int seconds;//残り時間の変数
     [SerializeField]
-    Shoot shoot = default;
+    Shoot shoot = default;//シュートスクリプト
     [SerializeField]
     private Text Time_text;//スコアのテキスト
     private bool scoreflag = default;
     [SerializeField]
-    FPScontoroller fpscontoroller;
+    FPScontoroller fpscontoroller;//視点移動のスクリプト
     private void Start()
     {
         TimeChecker();
